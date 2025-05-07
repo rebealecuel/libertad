@@ -58,5 +58,54 @@ namespace libertad
                 return false;
             }
         }
+
+        public bool ImportarExcel()
+        {
+            try
+            {
+                var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                var filePath = Path.Combine(desktopPath, "Alumnos.xlsx");
+
+                if (!File.Exists(filePath))
+                {
+                    return false;
+                }
+
+                using (var workbook = new XLWorkbook(filePath))
+                {
+                    var worksheet = workbook.Worksheet("Alumno");
+
+                    var rows = worksheet.RowsUsed().Skip(1); // Saltar los encabezados
+
+                    alumnosList.Clear(); // Limpiar la lista antes de importar nuevos datos
+
+                    foreach (var row in rows)
+                    {
+                        var nombre = row.Cell(1).Value.ToString();
+
+                        // Usar TryParse para evitar excepciones en la conversión
+                        int edad = 0;
+                        int.TryParse(row.Cell(2).Value.ToString(), out edad); // Intentar convertir a entero
+
+                        var carrera = row.Cell(3).Value.ToString();
+
+                        int matricula = 0;
+                        int.TryParse(row.Cell(4).Value.ToString(), out matricula); // Intentar convertir a entero
+
+                        DateTime fechanacimiento;
+                        DateTime.TryParse(row.Cell(5).Value.ToString(), out fechanacimiento); // Intentar convertir a DateTime
+
+                        // Agregar el Alumno solo si la conversión fue exitosa
+                        alumnosList.Add(new Alumno(nombre, edad, carrera, matricula, fechanacimiento));
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

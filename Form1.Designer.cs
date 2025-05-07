@@ -31,6 +31,7 @@
             this.dgTabla = new System.Windows.Forms.DataGridView();
             this.btnMostrar = new System.Windows.Forms.Button();
             this.btnExportar = new System.Windows.Forms.Button();
+            this.btnImportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgTabla)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             // 
             // btnExportar
             // 
-            this.btnExportar.Location = new System.Drawing.Point(486, 302);
+            this.btnExportar.Location = new System.Drawing.Point(485, 302);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(105, 36);
             this.btnExportar.TabIndex = 2;
@@ -62,11 +63,22 @@
             this.btnExportar.UseVisualStyleBackColor = true;
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
+            // btnImportar
+            // 
+            this.btnImportar.Location = new System.Drawing.Point(348, 302);
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.Size = new System.Drawing.Size(105, 36);
+            this.btnImportar.TabIndex = 3;
+            this.btnImportar.Text = "Importar";
+            this.btnImportar.UseVisualStyleBackColor = true;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnImportar);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.dgTabla);
@@ -82,6 +94,7 @@
         private System.Windows.Forms.DataGridView dgTabla;
         private System.Windows.Forms.Button btnMostrar;
         private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.Button btnImportar;
     }
 }
 

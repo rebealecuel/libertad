@@ -31,5 +31,14 @@ namespace libertad
             else
                 MessageBox.Show("Fallo catastrofico, no se pudo exportar...");
         }
+
+        private void btnImportar_Click(object sender, EventArgs e)
+        {
+            if (acc.ImportarExcel())
+                MessageBox.Show("Importado con exito...");
+
+            else
+                MessageBox.Show("Fallo catastrofico, no se pudo importar...");
+        }
     }
 }
