@@ -10,10 +10,7 @@ namespace libertad
     {
         private List<Alumno> alumnosList = new List<Alumno>
         {
-            new Alumno ("Rebeca",20,"Ladd",112969,DateTime.Today),
-            new Alumno ("Maya",19,"Ladd",112901, DateTime.Today),
-            new Alumno ("Cindy",20,"Ladd",112816,DateTime.Today),
-            new Alumno ("Angela",20,"Ladd",112318,DateTime.Today)
+            
         };
 
         public List<Alumno> Mostrar()
