@@ -8,14 +8,20 @@ namespace libertad
 {
     internal class acciones
     {
-        private List<Alumno> alumnosList = new List<Alumno>
-        {
-            
-        };
+        private List<Alumno> alumnosList = new List<Alumno>();
+        Correo correo = new Correo();
 
         public List<Alumno> Mostrar()
         {
-            return alumnosList;
+            try
+            {
+                return alumnosList;
+            }
+            catch (Exception ex) 
+            {
+                correo.EnviarCorreo(ex.ToString());
+                throw;
+            }
         }
 
         public bool ExportarExcel()
@@ -50,8 +56,9 @@ namespace libertad
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                correo.EnviarCorreo(ex.ToString());
                 return false;
             }
         }
@@ -99,8 +106,9 @@ namespace libertad
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                correo.EnviarCorreo(ex.ToString());
                 return false;
             }
         }
